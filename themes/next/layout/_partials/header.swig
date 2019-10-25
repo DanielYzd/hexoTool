@@ -72,5 +72,20 @@
     </div>
   {% endif %}
 </nav>
+<script>
+	window.onload = function(){
+		var path = 'https://danielyzd.github.io/DanielBlog'; //这里要改成你博客的地址
+		var localhostItem = String(window.location).split(path)[1];
+		var LiNode = document.querySelectorAll('#menu > li > a')
+		
+		for(var i = 0; i< LiNode.length;i++){
+			var item = String(LiNode[i].href).split(path)[1];
+			if(item == localhostItem && item != undefined){
+				LiNode[i].setAttribute('style','border-bottom:1px solid black');
+			}
+		}
+	};
+
+</script>
 
 {% include '../_custom/header.swig' %}

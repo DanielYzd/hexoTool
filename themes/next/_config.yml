@@ -92,11 +92,11 @@ index_with_subtitle: false
 # Value before `||` delimeter is the target link.
 # Value after `||` delimeter is the name of FontAwesome icon. If icon (with or without delimeter) is not specified, question icon will be loaded.
 menu:
-  home: / || home
+  home: /|| home
   #about: /about/ || user
-  #tags: /tags/ || tags
+  tags: /tags/|| tags
   #categories: /categories/ || th
-  archives: /archives/ || archive
+  archives: /archives/|| archive
   #schedule: /schedule/ || calendar
   #sitemap: /sitemap.xml || sitemap
   #commonweal: /404/ || heartbeat
@@ -105,15 +105,22 @@ menu:
 menu_icons:
   enable: true
 
-
+gitalk:
+  enable: true
+  githubID: danielyzd  # 例：asdfv1929   
+  repo: DanielBlog   # 例：asdfv1929.github.io
+  ClientID: dfadf705194378a6d03a
+  ClientSecret: 16e914df762c7c1c66334e569c02b488893f52c4
+  adminUser: danielyzd #指定可初始化评论账户
+  distractionFreeMode: true
 # ---------------------------------------------------------------
 # Scheme Settings
 # ---------------------------------------------------------------
 
 # Schemes
-scheme: Muse
+# scheme: Muse
 #scheme: Mist
-#scheme: Pisces
+scheme: Pisces
 #scheme: Gemini
 
 
@@ -230,9 +237,9 @@ post_meta:
 # Dependencies: https://github.com/willin/hexo-wordcount
 post_wordcount:
   item_text: true
-  wordcount: false
-  min2read: false
-  totalcount: false
+  wordcount: true         # 单篇 字数统计
+  min2read: true          # 单篇 阅读时长
+  totalcount: true       # 网站 字数统计
   separated_meta: true
 
 # Wechat Subscriber
