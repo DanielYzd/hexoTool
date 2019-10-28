@@ -5,3 +5,5 @@ tags: hexo
 ---
 [hexo的next主题个性化教程:打造炫酷网站](http://shenzekun.cn/hexo%E7%9A%84next%E4%B8%BB%E9%A2%98%E4%B8%AA%E6%80%A7%E5%8C%96%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B.html)
 [next官方配置教程](http://theme-next.iissnan.com/theme-settings.html#reward)
+[超详细Hexo+Github Page搭建技术博客教程](https://juejin.im/post/5c4730c9f265da61616efeec#heading-25)
+[next主题优化定制修改指南***](https://blog.csdn.net/u012195214/article/details/79204088)

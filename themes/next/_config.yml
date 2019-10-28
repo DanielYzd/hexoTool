@@ -93,9 +93,9 @@ index_with_subtitle: false
 # Value after `||` delimeter is the name of FontAwesome icon. If icon (with or without delimeter) is not specified, question icon will be loaded.
 menu:
   home: /|| home
-  #about: /about/ || user
-  tags: /tags/|| tags
-  #categories: /categories/ || th
+  about: /about/|| user
+  tags: /tags|| tags
+  categories: /categories/|| th
   archives: /archives/|| archive
   #schedule: /schedule/ || calendar
   #sitemap: /sitemap.xml || sitemap
@@ -107,6 +107,8 @@ menu_icons:
   home: home
   tags: tags
   archives: archive
+  categories: th
+  about: user
 
 gitalk:
   enable: true
@@ -137,8 +139,8 @@ scheme: Muse
 # Value before `||` delimeter is the target permalink.
 # Value after `||` delimeter is the name of FontAwesome icon. If icon (with or without delimeter) is not specified, globe icon will be loaded.
 social:
-  GitHub: https://github.com/DanielYzd
-  掘金: https://juejin.im/user/5b9db4b2e51d450e452a8e21
+  GitHub: https://github.com/DanielYzd || github
+  掘金: https://juejin.im/user/5b9db4b2e51d450e452a8e21 || twitter
   #E-Mail: mailto:yourname@gmail.com || envelope
   #Google: https://plus.google.com/yourname || google
   #Twitter: https://twitter.com/yourname || twitter
@@ -207,7 +209,8 @@ sidebar:
   b2t: false
 
   # Scroll percent label in b2t button.
-  scrollpercent: false
+  # 当前浏览进度
+  scrollpercent: true
 
   # Enable sidebar on narrow view (only for Muse | Mist).
   onmobile: false
