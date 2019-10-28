@@ -13,8 +13,10 @@ timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://danielyzd.github.io
-root: /DanielBlog
+# url: https://danielyzd.github.io/
+# root: /DanielBlog
+url: https://danielyzd.github.io/DanielBlog
+root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -86,6 +88,7 @@ pagination_dir: page
 ## Themes: https://hexo.io/themes/
 # theme: landscape
 theme: next
+# theme: matery
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -98,3 +101,10 @@ deploy:
 # Extensions
 ## Plugins: http://hexo.io/plugins/
 plugins: hexo-generate-feed
+
+# 添加搜索功能
+search:
+  path: ./public/search.xml
+  field: post
+  format: html
+  limit: 10000
