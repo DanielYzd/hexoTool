@@ -1,3 +1,4 @@
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <div class="copyright">{#
 #}{% set current = date(Date.now(), "YYYY") %}{#
 #}&copy; {% if theme.footer.since and theme.footer.since != current %}{{ theme.footer.since }} &mdash; {% endif %}{#
@@ -21,24 +22,30 @@
   {% endif %}
 </div>
 
-{% if theme.footer.powered %}
+<!--{% if theme.footer.powered %}
   <div class="powered-by">{#
   #}{{ __('footer.powered', '<a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a>') }}{#
 #}</div>
-{% endif %}
+{% endif %}-->
 
 {% if theme.footer.powered and theme.footer.theme.enable %}
   <span class="post-meta-divider">|</span>
 {% endif %}
 
-{% if theme.footer.theme.enable %}
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+<!--{% if theme.footer.theme.enable %}
   <div class="theme-info">{#
   #}{{ __('footer.theme') }} &mdash; {#
   #}<a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">{#
     #}NexT.{{ theme.scheme }}{#
   #}</a>{% if theme.footer.theme.version %} v{{ theme.version }}{% endif %}{#
 #}</div>
-{% endif %}
+{% endif %}-->
 
 {% if theme.footer.custom_text %}
   <div class="footer-custom">{#
@@ -46,7 +53,11 @@
 #}</div>
 {% endif %}
 
-<!-- 新增访客统计代码 -->
+<!--<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共{{ totalcount(site) }}字</span>
+</div>-->
+<!-- 新增访客统计代码 
 
 <div class="busuanzi-count">
     <script async="" src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -59,10 +70,9 @@
       <i class="fa fa-eye"></i>
       访问次数： <span class="busuanzi-value" id="busuanzi_value_site_pv"></span> 次
     </span>
-    <!-- 博客字数统计 -->
     <span class="site-pv">
       <i class="fa fa-pencil"></i>
       博客全站共： <span class="post-count">{{ totalcount(site) }}</span> 字
     </span>
 </div>
-<!-- 新增访客统计代码 END-->
+新增访客统计代码 END-->

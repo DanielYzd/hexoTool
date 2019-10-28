@@ -27,8 +27,8 @@ override: false
 # For example, you put your favicons into `hexo-site/source/images` directory.
 # Then need to rename & redefine they on any other names, otherwise icons from Next will rewrite your custom icons in Hexo.
 favicon:
-  small: /images/favicon-16x16-next.png
-  medium: /images/favicon-32x32-next.png
+  small: /images/favicon.ico
+  medium: /images/favicon.ico
   apple_touch_icon: /images/apple-touch-icon-next.png
   safari_pinned_tab: /images/logo.svg
   #android_manifest: /images/manifest.json
@@ -40,7 +40,7 @@ keywords: "Hexo, NexT"
 # Set rss to false to disable feed link.
 # Leave rss as empty to use site's feed link.
 # Set rss to specific value if you have burned your feed already.
-rss:
+rss: /atom.xml
 
 footer:
   # Specify the date when the site was setup.
@@ -104,6 +104,9 @@ menu:
 # Enable/Disable menu icons.
 menu_icons:
   enable: true
+  home: home
+  tags: tags
+  archives: archive
 
 gitalk:
   enable: true
@@ -117,11 +120,11 @@ gitalk:
 # Scheme Settings
 # ---------------------------------------------------------------
 
-# Schemes
-# scheme: Muse
-#scheme: Mist
-scheme: Pisces
-#scheme: Gemini
+# Schemes 主题样式
+scheme: Muse
+# scheme: Mist
+# scheme: Pisces
+# scheme: Gemini
 
 
 # ---------------------------------------------------------------
@@ -133,8 +136,9 @@ scheme: Pisces
 # Key is the link label showing to end users.
 # Value before `||` delimeter is the target permalink.
 # Value after `||` delimeter is the name of FontAwesome icon. If icon (with or without delimeter) is not specified, globe icon will be loaded.
-#social:
-  #GitHub: https://github.com/yourname || github
+social:
+  GitHub: https://github.com/DanielYzd
+  掘金: https://juejin.im/user/5b9db4b2e51d450e452a8e21
   #E-Mail: mailto:yourname@gmail.com || envelope
   #Google: https://plus.google.com/yourname || google
   #Twitter: https://twitter.com/yourname || twitter
@@ -146,6 +150,8 @@ scheme: Pisces
   #Skype: skype:yourname?call|chat || skype
 
 social_icons:
+  GitHub: github
+  掘金: spinner
   enable: true
   icons_only: false
   transition: false
@@ -161,7 +167,7 @@ links_layout: block
 # Sidebar Avatar
 # in theme directory(source/images): /images/avatar.gif
 # in site  directory(source/uploads): /uploads/avatar.gif
-#avatar: /images/avatar.gif
+avatar: /images/hexo.gif
 
 # Table Of Contents in the Sidebar
 toc:
@@ -222,8 +228,9 @@ excerpt_description: true
 
 # Automatically Excerpt. Not recommend.
 # Please use <!-- more --> in the post to control excerpt accurately.
+# 阅读全文
 auto_excerpt:
-  enable: false
+  enable: true
   length: 150
 
 # Post meta display settings
@@ -249,9 +256,9 @@ post_wordcount:
   #description: ex. subscribe to my blog by scanning my public wechat account
 
 # Reward
-#reward_comment: Donate comment here
-#wechatpay: /images/wechatpay.jpg
-#alipay: /images/alipay.jpg
+reward_comment: 坚持原创技术分享，您的支持将鼓励我继续创作
+wechatpay: /DanielBlog/images/wepay.jpg
+alipay: /DanielBlog/images/zfpay.jpg
 #bitcoin: /images/bitcoin.png
 
 # Declare license on posts
@@ -682,7 +689,7 @@ motion:
 fancybox: true
 
 # Progress bar in the top during page loading.
-pace: false
+pace: true
 # Themes list:
 #pace-theme-big-counter
 #pace-theme-bounce
@@ -702,7 +709,7 @@ pace: false
 pace_theme: pace-theme-minimal
 
 # Canvas-nest
-canvas_nest: false
+canvas_nest: true
 
 # three_waves
 three_waves: false
@@ -810,6 +817,10 @@ vendors:
   # https://github.com/revir/need-more-share2
   needMoreShare2:
 
+    
+# 文章末尾添加“本文结束”标记
+passage_end_tag:
+enabled: true
 
 # Assets
 css: css

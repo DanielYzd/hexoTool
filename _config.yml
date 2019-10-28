@@ -94,3 +94,7 @@ deploy:
   repo:
     github: https://github.com/DanielYzd/DanielBlog.git
   branch: gh-pages
+
+# Extensions
+## Plugins: http://hexo.io/plugins/
+plugins: hexo-generate-feed
