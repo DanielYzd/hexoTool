@@ -301,4 +301,225 @@ console.log(arr,sum)
     const foundIndex = arr.indexOf('Frank');
     console.log(foundIndex); // 1
    ```
-https://juejin.im/post/5db7826df265da4d26043291#heading-2
+
+#### push pop shift unshift
+
+**push:** 这是一个相对简单的方法，它将一个项添加到数组的末尾。它就地修改数组，函数本身会返回数组长度
+
+```
+let arr = [1, 2, 3, 4]
+const pushed = arr.push(6)
+console.log(arr); // [1, 2, 3, 4, 6]
+console.log(pushed); // 5 数组长度
+```
+
+**pop:** 这将从数组中删除最后一项，同样，它在适当的位置修改数组，函数本身返回从数组中删除的项
+
+```
+let arr = [1, 2, 3, 4]
+const popped = arr.pop();
+console.log(arr); // [1, 2, 3]
+console.log(popped); // 4
+```
+
+**shift:** 从数组中删除第一项，同样它在适当的位置修改数组。函数本身返回从数组中删除的项。
+
+```
+let arr = [1, 2, 3, 4]
+const shifted = arr.shift()
+console.log(arr); // [2, 3, 4]
+console.log(shifted); //1
+```
+
+**unshift:** 将一个或多个元素添加到数组的开头。同样，它在适当的位置修改数组。与许多其他方法不同，函数本身返回数组的长度。
+
+```
+let arr = [1, 2, 3, 4];
+const unshifted = arr.unshift(5, 6, 7);
+console.log(arr); // [5, 6, 7, 1, 2, 3, 4]
+console.log(unshifted); // 7
+```
+
+#### splice,slice
+
+**splice:** 通过删除或替换现有元素和/或添加新元素来更改数组的内容，此方法会修改了数组本身。
+
+**语法:** 
+
+```
+arrObject.splice(index,howmany,item1,....,itemX)
+```
+
+参数|描述
+--|:--:
+index|必需。整数，规定添加/删除项目的位置，使用负数可从数组结尾处规定位置。
+howmany|必需。需要删除的项目数量。如果设置为0，则不会删除项目。
+item1,...,itemX|可选。向数组添加新项目
+
+**返回值：**
+
+类型|描述
+--|:--:
+Array|包含被删除项目的新数组，如果有的话。
+
+下面的代码示例的意思是：在数组的位置`1`上删除`0`各元素，并插入`b`。
+
+```
+let arr = ['a', 'c', 'd', 'e'];
+arr.splice(1, 0, 'b')
+console.log(arr);
+```
+
+**slice:**从指定的起始位置和指定的结束位置之前返回数组的浅拷贝。如果未指定结束位置，则返回数组的其余部分。重要的是，此方法
+不会修改数组，而是返回所需的子集。
+
+```
+ let arr = ['a', 'b', 'c', 'd', 'e'];
+ const sliced = arr.slice(2, 4);
+ console.log(sliced); // ['c', 'd']
+ console.log(arr) //  ['a', 'b', 'c', 'd', 'e']
+```
+
+#### sort
+
+**sort:**根据提供的函数对数组进行排序。这个方法就地修改数组。如果函数返回负数或0，则顺序保持不变。如果返回正数，则交换元素顺序。
+
+```
+let arr = [1, 7, 3, -1, 5, 7, 2];
+const sorter = (firstEl, secondEl) => firstEl - secondEl;
+arr.sort(sorter);
+cosnole.log(arr); // [-1, 1, 2, 3, 5, 7, 7]
+```
+
+### Generators(生成器)
+
+******
+
+生成器是一种特殊的行为,实际上是一种设计模式，咱们通过`next()`方法来遍历一组有序的值。想象一下，例如使用遍历器对数组`[1, 2, 3, 4, 5]`进行遍历。
+第一次调用`next()`方法返回`1`，第二次调用`next()`返回`2`，以此类推。当数组的所有值都返回后,调用`next()`方法将返回`nul`l或`false`，或其他可能的值用来
+表示数组中的所有元素都已遍历完毕。
+
+```
+function* greeter() {
+    yield 'Hi';
+    yield 'How are you?';
+    yield 'Bye';
+}
+const greet = greeter();
+console.log(greet.next().value);
+// 'Hi'
+console.log(greet.next().value);
+// 'How are you?'
+console.log(greet.next().value);
+// 'Bye'
+console.log(greet.next().value);
+// undefined
+```
+
+使用生成器生成无限个值：
+
+```
+function* idCreator(){
+    let i = 0;
+    while (true)
+      yield i++;
+}
+const ids = idCreator();
+console.log(ids.next().value);
+// 0
+console.log(ids.next().value);
+// 1
+console.log(ids.next().value);
+// 2
+console.log(ids.next().value);
+// ...
+```
+
+### 严格相等运算符(===)与相等运算符(===)
+
+******
+大家一定要知道JS中的严格相等运算符(`===`)和相等运算符(`==`)之间的区别。`==`运算符在比较值之前会进行类型转换，而`===`运算符在比较之前不会进行任何类型转换。
+
+```
+console.log(0 == '0');
+// true
+console.log(0 === '0');
+// false
+```
+
+### 对象比较
+
+******
+JS新手经常所犯的错误是直接比较对象。变量指向内存中对象的引用，而不是对象本身!实际比较它们的一种方法是将对象转换为JSON字符串。这有一个缺点：对象属性顺序不能
+保证，比较对象的一种更安全的方法是引入专门进行深度对象比较的库(例如,[lodash中isEqual](https://lodash.com/docs/4.17.15#isEqual))
+
+下面的对象看起来是相等的，但实际上它们指向不同的引用。
+
+```
+const joe1 = { name: 'Daniel' };
+const joe2 = { name: 'Daniel' };
+console.log(joe1 === joe2); // false
+```
+
+相反，下面的计算结果为`true`，因为一个对象被设置为与另一个对象相等，因此指向相同的引用(内存中只有一个对象)。
+
+```
+const joe1 = { name: 'Daniel' };
+const joe2 = joe1;
+console.log(joe1 === joe2); //true
+```
+
+### 回调函数
+
+******
+很多人都被JS回调函数吓倒了。他们很简单，举个例子，`console.log`函数作为回调函数传递给`myFunc`,它在`setTimeout`完成时进行。
+
+```
+function myFunc(text, callback){
+    setTimeout(function() {
+        console.log(text);
+    }, 2000);
+}
+myFunc('Hello world!',console.log);
+```
+
+### Promises
+
+******
+一旦你理解了JS回调，很快就会发现自己陷入了"回调地狱"中。这个时候可以使用`promise`,将一部逻辑包装在`promise`中，成功时`resolve`或在失败时`reject`
+使用`then`来处理成功的情况，使用`catch`来处理失败异常
+
+```
+const myPromise = new Promise(function(res, rej) {
+    setTimeout(function(){
+        if(Math.random() < 0.9) {
+            return res('Hooray!');
+        } else {
+            return rej('Oh no!');
+        }
+    },1000);
+})
+myPromise.then(function(data) {
+    console.log('Success' + data);
+})
+.catch(function(err) {
+    console.log('Error' + err);
+});
+```
+
+### Async/Await
+
+******
+在掌握了promise的用法后，你可能也会喜欢`async await`,它是一种基于`promise`的"语法糖"。在下面的示例中，咱们创建了一个`async`函数，并`awit greeter`。
+
+```
+const greeter = new Promise((res,rej) => {
+    setTimeout(() => res('Hello world!'),2000);
+})
+async function myFunc() {
+    const greeting = await greeter;
+    console.log(greeting);
+}
+myFunc();
+// 'Hello world!'
+```
